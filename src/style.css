@@ -8,7 +8,7 @@
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 100px 5fr 50px;
+  grid-template-rows: 100px 5fr 55px;
 }
 
 #mainContainer {
@@ -19,15 +19,53 @@
 /*  */
 /* HEADER */
 /*  */
+#headerContainer {
+  display: grid;
+  background-color: lightgreen;
+}
+
+.title {
+  font-size: 60px;
+  align-self: center;
+}
 
 /*  */
 /* SIDEBAR */
 /*  */
+.sidebar {
+  background-color: lightblue;
+  font-size: 30px;
+}
+
+.sidebar ul {
+  padding-top: 2rem;
+}
+
+.sidebar ul > li {
+  list-style: none;
+  padding: 0rem 3rem 0.5rem;
+}
+
+.sidebar a {
+  cursor: pointer;
+}
 
 /*  */
 /* MAIN */
 /*  */
+.main {
+  background-color: aqua;
+}
 
 /*  */
 /* FOOTER */
 /*  */
+#footerContainer {
+  background-color: yellow;
+  display: grid;
+}
+
+.footer {
+  align-self: center;
+  justify-self: center;
+}
