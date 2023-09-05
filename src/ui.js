@@ -1,7 +1,11 @@
+import { myProjects, newProject } from "./projects";
 import "./style.css";
 
+const menu = ["Home", "Today", "Upcoming"];
+
+const initialize = document.querySelector("#content");
+
 export default function initializeUi() {
-  const initialize = document.querySelector("#content");
   initialize.appendChild(createHeader());
   initialize.appendChild(createMain());
   initialize.appendChild(createFooter());
@@ -9,58 +13,48 @@ export default function initializeUi() {
 
 function createHeader() {
   const headerContainer = document.createElement("div");
-  headerContainer.setAttribute("id", "headerContainer");
-
   const headerIcon = document.createElement("h1");
+  headerContainer.setAttribute("id", "headerContainer");
   headerIcon.classList.add("title");
   headerIcon.textContent = "Do It Up";
-
   headerContainer.appendChild(headerIcon);
-
   return headerContainer;
 }
 
 function createMain() {
-  const menu = ["Home", "Today", "Upcoming"];
-
   const mainContainer = document.createElement("div");
-  mainContainer.setAttribute("id", "mainContainer");
-
+  const main = document.createElement("div");
   const sidebar = document.createElement("div");
-  sidebar.classList.add("sidebar");
-
   const navList = document.createElement("ul");
+  mainContainer.setAttribute("id", "mainContainer");
+  sidebar.classList.add("sidebar");
+  main.classList.add("main");
 
   for (let i = 0; i < menu.length; i++) {
     const li = document.createElement("li");
     li.classList.add(menu[i].toLowerCase(), "menu");
-
     const a = document.createElement("a");
     a.innerHTML = menu[i];
-
     li.appendChild(a);
     navList.appendChild(li);
   }
 
-  const main = document.createElement("div");
-  main.classList.add("main");
-
   sidebar.appendChild(navList);
-
   mainContainer.appendChild(sidebar);
   mainContainer.appendChild(main);
-
   return mainContainer;
 }
 
 function createFooter() {
   const footerContainer = document.createElement("div");
-  footerContainer.setAttribute("id", "footerContainer");
-
   const footer = document.createElement("div");
+  footerContainer.setAttribute("id", "footerContainer");
   footer.classList.add("footer");
   footer.textContent = "Do It Up 2023 © https://github.com/xKChan";
-
   footerContainer.appendChild(footer);
   return footerContainer;
 }
+
+console.log(myProjects);
+newProject("Clean keyboard", "NA", "Friday", "low");
+newProject("Clean Car", "NA", "Saturday", "High");
