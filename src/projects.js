@@ -22,7 +22,7 @@ export const myProjects = [
 
 // Project factory
 class Projects {
-  constructor(title, description, dueDate, priority) {
+  constructor(title, description = "N/A", dueDate, priority) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;

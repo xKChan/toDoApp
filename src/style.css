@@ -35,6 +35,7 @@
 .sidebar {
   background-color: lightblue;
   font-size: 30px;
+  /* grid-area: 1 / 1 / 2 / 2; */
 }
 
 .sidebar ul {
