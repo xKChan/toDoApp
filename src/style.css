@@ -58,6 +58,48 @@
   background-color: aqua;
 }
 
+.taskHeaders {
+  display: grid;
+  font-size: 20px;
+  grid-template-columns: 4fr 11% 16%;
+}
+
+.tasks {
+  display: grid;
+  row-gap: 6%;
+  padding-top: 4%;
+}
+
+.taskList {
+  display: grid;
+  grid-template-columns: 4fr 10% 14%;
+  height: 2.5rem;
+  align-content: center;
+  background-color: lightgray;
+  margin: 0% 4%;
+}
+
+.taskList h3 {
+  padding-left: 5%;
+}
+
+.taskHeaders h3 {
+  padding-left: 7%;
+}
+
+.taskList h5,
+.taskHeaders h3 {
+  padding-right: 5%;
+}
+
+.cards {
+  line-height: 35px;
+}
+
+.rightSide {
+  justify-self: center;
+}
+
 /*  */
 /* FOOTER */
 /*  */

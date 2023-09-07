@@ -1,4 +1,4 @@
-export const myProjects = [
+export const myTasks = [
   {
     title: "Clean Room",
     description: "",
@@ -21,7 +21,7 @@ export const myProjects = [
 ];
 
 // Project factory
-class Projects {
+class Tasks {
   constructor(title, description = "N/A", dueDate, priority) {
     this.title = title;
     this.description = description;
@@ -30,8 +30,8 @@ class Projects {
   }
 }
 
-export function newProject(title, description, duedate, priority) {
-  let addProject = new Projects(title, description, duedate, priority);
-  myProjects.push(addProject);
-  console.log(myProjects);
+export function newTasks(title, description, duedate, priority) {
+  let addTasks = new Tasks(title, description, duedate, priority);
+  myTasks.push(addTasks);
+  console.log(myTasks);
 }

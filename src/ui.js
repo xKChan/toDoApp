@@ -1,4 +1,4 @@
-import { myProjects, newProject } from "./projects";
+import { myTasks, newTasks } from "./tasks";
 // import "./style.css";
 
 const menu = ["Home", "Today", "Upcoming"];
@@ -27,21 +27,22 @@ function createSidebar() {
 
 function displayTasks() {
   const projectTasks = document.querySelector(".tasks");
-  for (let i = 0; i < myProjects.length; i++) {
-    let task = myProjects[i];
+  for (let i = 0; i < myTasks.length; i++) {
+    let task = myTasks[i];
     const dafaultDescription = task.description != "" ? task.description : "NA";
     let taskEl = document.createElement("div");
     let title = document.createElement("h3");
-    let description = document.createElement("p");
     let dueDate = document.createElement("div");
     let priority = document.createElement("h5");
     taskEl.classList.add("taskList");
+    title.classList.add("cards");
+    dueDate.classList.add("cards", "rightSide");
+    priority.classList.add("cards", "rightSide");
     title.textContent = task.title;
-    description.textContent = dafaultDescription;
+    // description.textContent = dafaultDescription;
     dueDate.textContent = task.dueDate;
     priority.textContent = task.priority;
     taskEl.appendChild(title);
-    taskEl.appendChild(description);
     taskEl.appendChild(dueDate);
     taskEl.appendChild(priority);
     projectTasks.appendChild(taskEl);
@@ -51,5 +52,5 @@ function displayTasks() {
 
 // console.log(myProjects);
 
-newProject("Clean keyboard", "NA", "Friday", "low");
-newProject("Clean Car", "NA", "Saturday", "High");
+newTasks("Clean keyboard", "NA", "Friday", "low");
+newTasks("Clean Car", "NA", "Saturday", "High");
