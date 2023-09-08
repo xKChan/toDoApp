@@ -13,6 +13,8 @@ export default function initializeUi() {
   createSidebar();
   displayTasks();
   addNewBtn();
+  submitForm();
+  cancelBtn();
 }
 
 function createSidebar() {
@@ -82,14 +84,48 @@ function removeTaskBtn() {
   });
 }
 
-function addNewBtn() {
-  let addTask = document.querySelector(".addNew");
-  addTask.addEventListener("click", () => {
-    console.log("hi");
-    makeNewTask("Charge Laptop", "", "Tomorrow", "Low");
-    console.log(myTasks);
+function addNewTask() {
+  let title = document.querySelector("#title").value;
+  let description = document.querySelector("#description").value;
+  let dueDate = document.querySelector("#dueDate").value;
+  let priority = document.querySelector("#priority").value;
 
-    displayTasks();
-    return;
+  makeNewTask(title, description, dueDate, priority);
+  displayTasks();
+}
+
+function submitForm() {
+  document
+    .querySelector("#formContainer")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      addNewTask();
+      hideForm();
+    });
+}
+
+function addNewBtn() {
+  document.querySelector(".addNew").addEventListener("click", () => {
+    showForm();
   });
+}
+
+function cancelBtn() {
+  document.querySelector("#cancelNew").addEventListener("click", () => {
+    hideForm();
+  });
+}
+
+function showForm() {
+  document.querySelector("#form").removeAttribute("style");
+  formContainer();
+}
+
+function hideForm() {
+  document.querySelector("#form").style.display = "none";
+  formContainer();
+}
+
+function formContainer() {
+  document.querySelector("#formContainer").classList.toggle("formContainer");
 }

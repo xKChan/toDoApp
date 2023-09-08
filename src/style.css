@@ -125,12 +125,48 @@
 /*  */
 /* Form */
 /*  */
+
+.taskTitle {
+  text-align: center;
+  padding-bottom: 5%;
+  padding-top: 10%;
+}
+
 .formContainer {
-  border: 1px solid black;
-  /* text-align: center; */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(26, 26, 26, 0.9);
+}
+
+#form {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
+  height: 50%;
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+.container {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.container label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+  padding-right: 2%;
+}
+
+.row5 {
+  width: 100%;
+  padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 5%;
 }
