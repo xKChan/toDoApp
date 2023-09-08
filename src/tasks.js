@@ -30,21 +30,16 @@ class Tasks {
   }
 }
 
-export function newTasks(title, description, duedate, priority) {
+export function makeNewTask(title, description, duedate, priority) {
   let addTasks = new Tasks(title, description, duedate, priority);
   myTasks.push(addTasks);
-  // console.log(myTasks);
 }
 
 export function removeTask(task) {
   for (let i = 0; i < myTasks.length; i++) {
     if (task.dataset.remove == i) {
       myTasks.splice(i, 1);
-      console.log(myTasks);
-
       return;
     }
   }
 }
-
-export function addNewTask() {}

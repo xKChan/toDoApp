@@ -1,4 +1,4 @@
-import { myTasks, newTasks, removeTask } from "./tasks";
+import { myTasks, makeNewTask, removeTask } from "./tasks";
 import removeicon from "./imgs/remove1.svg";
 import addNewIcon from "./imgs/new.svg";
 // import "./style.css";
@@ -12,6 +12,7 @@ const projectTasks = document.querySelector(".tasks");
 export default function initializeUi() {
   createSidebar();
   displayTasks();
+  addNewBtn();
 }
 
 function createSidebar() {
@@ -39,7 +40,7 @@ function displayTasks() {
 
 function removeDuplicates() {
   while (projectTasks.firstChild) {
-    projectTasks.removeChild(projectTasks.lastChild);
+    projectTasks.removeChild(projectTasks.firstChild);
   }
 }
 
@@ -81,4 +82,14 @@ function removeTaskBtn() {
   });
 }
 
-// console.log(myProjects);
+function addNewBtn() {
+  let addTask = document.querySelector(".addNew");
+  addTask.addEventListener("click", () => {
+    console.log("hi");
+    makeNewTask("Charge Laptop", "", "Tomorrow", "Low");
+    console.log(myTasks);
+
+    displayTasks();
+    return;
+  });
+}
