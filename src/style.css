@@ -16,6 +16,10 @@
   grid-template-columns: 25rem 1fr;
 }
 
+.icon {
+  cursor: pointer;
+}
+
 /*  */
 /* HEADER */
 /*  */
@@ -35,7 +39,9 @@
 .sidebar {
   background-color: lightblue;
   font-size: 30px;
-  /* grid-area: 1 / 1 / 2 / 2; */
+  display: grid;
+  padding-left: 15%;
+  padding-bottom: 15%;
 }
 
 .sidebar ul {
@@ -44,11 +50,16 @@
 
 .sidebar ul > li {
   list-style: none;
-  padding: 0rem 3rem 0.5rem;
+  padding: 0rem 1rem 0.5rem;
 }
 
 .sidebar a {
   cursor: pointer;
+}
+
+.addNew {
+  width: 15%;
+  align-self: flex-end;
 }
 
 /*  */
@@ -60,8 +71,10 @@
 
 .taskHeaders {
   display: grid;
-  font-size: 20px;
+  font-size: 1.1rem;
   grid-template-columns: 4fr 11% 16%;
+  padding-left: 5%;
+  padding-right: 1%;
 }
 
 .tasks {
@@ -72,24 +85,14 @@
 
 .taskList {
   display: grid;
-  grid-template-columns: 4fr 10% 14%;
+  grid-template-columns: 4fr 10% 10% 2%;
   height: 2.5rem;
   align-content: center;
   background-color: lightgray;
   margin: 0% 4%;
-}
-
-.taskList h3 {
-  padding-left: 5%;
-}
-
-.taskHeaders h3 {
-  padding-left: 7%;
-}
-
-.taskList h5,
-.taskHeaders h3 {
-  padding-right: 5%;
+  padding-right: 3%;
+  padding-left: 3%;
+  font-size: 0.84rem;
 }
 
 .cards {
@@ -98,6 +101,12 @@
 
 .rightSide {
   justify-self: center;
+}
+
+.removeBtn {
+  align-self: center;
+  width: 20px;
+  padding-right: 2%;
 }
 
 /*  */

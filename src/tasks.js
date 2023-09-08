@@ -2,20 +2,20 @@ export const myTasks = [
   {
     title: "Clean Room",
     description: "",
-    dueDate: "",
+    dueDate: "Sunday",
     priority: "Low",
   },
   {
     title: "Fill out Chinese Visa",
     description: "Fill out application for chinese visas",
-    dueDate: "",
+    dueDate: "Friday",
     priority: "High",
   },
   {
     title: "Pack up items to move to new house",
     description:
       "Pack up all items to move to new house when its done building",
-    dueDate: "",
+    dueDate: "Today",
     priority: "Medium",
   },
 ];
@@ -33,5 +33,18 @@ class Tasks {
 export function newTasks(title, description, duedate, priority) {
   let addTasks = new Tasks(title, description, duedate, priority);
   myTasks.push(addTasks);
-  console.log(myTasks);
+  // console.log(myTasks);
 }
+
+export function removeTask(task) {
+  for (let i = 0; i < myTasks.length; i++) {
+    if (task.dataset.remove == i) {
+      myTasks.splice(i, 1);
+      console.log(myTasks);
+
+      return;
+    }
+  }
+}
+
+export function addNewTask() {}
