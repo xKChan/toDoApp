@@ -85,7 +85,7 @@
 
 .taskList {
   display: grid;
-  grid-template-columns: 4fr 10% 10% 2%;
+  grid-template-columns: 15px 4fr 10% 10% 2%;
   height: 2.5rem;
   align-content: center;
   background-color: lightgray;
@@ -95,8 +95,16 @@
   font-size: 0.84rem;
 }
 
+.taskList input {
+  width: 10px;
+}
+
 .cards {
   line-height: 35px;
+}
+
+.taskList h3 {
+  padding-left: 2%;
 }
 
 .rightSide {
@@ -108,6 +116,15 @@
   width: 20px;
   padding-right: 2%;
 }
+
+/*  */
+/* COMPLETED TASKS */
+/*  */
+
+/* .completeTask {
+  text-decoration: line-through;
+  color: rgb(128, 128, 128, 0.6);
+} */
 
 /*  */
 /* FOOTER */
