@@ -146,6 +146,7 @@
 .taskTitle {
   text-align: center;
   padding-bottom: 5%;
+  text-decoration: underline;
 }
 
 .formContainer {
@@ -166,6 +167,7 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr 0.5fr;
   grid-template-rows: 0.5fr 1fr 0.5fr;
+  border-radius: 20px;
 }
 
 .container {
@@ -178,6 +180,7 @@
   width: 100px;
   text-align: right;
   padding-right: 2%;
+  font-weight: bold;
 }
 
 .row5 {
@@ -185,4 +188,10 @@
   padding-left: 25%;
   padding-right: 25%;
   padding-top: 5%;
+}
+
+.row1,
+.row2,
+.row3 {
+  padding-bottom: 5%;
 }
