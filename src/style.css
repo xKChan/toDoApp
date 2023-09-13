@@ -40,6 +40,7 @@
   background-color: lightblue;
   font-size: 30px;
   display: grid;
+  grid-template-rows: 0.3fr 1fr auto;
   padding-left: 15%;
   padding-bottom: 15%;
 }
@@ -121,10 +122,10 @@
 /* COMPLETED TASKS */
 /*  */
 
-/* .completeTask {
+.completeTask {
   text-decoration: line-through;
   color: rgb(128, 128, 128, 0.6);
-} */
+}
 
 /*  */
 /* FOOTER */
@@ -185,13 +186,20 @@
 
 .row5 {
   width: 100%;
-  padding-left: 25%;
-  padding-right: 25%;
   padding-top: 5%;
+  text-align: center;
+}
+
+#add-task {
+  margin-right: 10px;
+}
+
+.row5 button {
+  padding: 5px 10px;
 }
 
 .row1,
 .row2,
 .row3 {
-  padding-bottom: 5%;
+  padding-bottom: 1.5%;
 }

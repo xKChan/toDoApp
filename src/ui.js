@@ -4,6 +4,7 @@ import addNewIcon from "./imgs/new.svg";
 // import "./style.css";
 
 const menu = ["Home", "Today", "Upcoming"];
+const projects = ["Gym", "Work", "Goals"];
 
 const initialize = document.querySelector("#content");
 const sidebar = document.querySelector(".sidebar");
@@ -18,8 +19,16 @@ export default function initializeUi() {
 }
 
 function createSidebar() {
-  const navList = document.createElement("ul");
+  createNavBar();
+  createProjectBar();
   const addNew = new Image();
+  addNew.classList.add("addNew", "icon");
+  addNew.src = addNewIcon;
+  sidebar.appendChild(addNew);
+}
+
+function createNavBar() {
+  const navList = document.createElement("ul");
   for (let i = 0; i < menu.length; i++) {
     const li = document.createElement("li");
     const a = document.createElement("a");
@@ -27,11 +36,24 @@ function createSidebar() {
     a.innerHTML = menu[i];
     li.appendChild(a);
     navList.appendChild(li);
+    sidebar.appendChild(navList);
   }
-  addNew.classList.add("addNew", "icon");
-  addNew.src = addNewIcon;
-  sidebar.appendChild(navList);
-  sidebar.appendChild(addNew);
+  return navList;
+}
+
+function createProjectBar() {
+  const projectList = document.createElement("ul");
+  projectList.textContent = "PROJECTS";
+  for (let i = 0; i < projects.length; i++) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    li.classList.add("projectNav");
+    a.innerHTML = projects[i];
+    li.appendChild(a);
+    projectList.appendChild(li);
+    sidebar.appendChild(projectList);
+  }
+  return projectList;
 }
 
 function displayTasks() {
