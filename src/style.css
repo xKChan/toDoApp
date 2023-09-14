@@ -86,7 +86,7 @@
 
 .taskList {
   display: grid;
-  grid-template-columns: 15px 4fr 10% 10% 2%;
+  grid-template-columns: 15px 4fr 10% 10% 4% 2%;
   height: 2.5rem;
   align-content: center;
   background-color: lightgray;
@@ -112,10 +112,15 @@
   justify-self: center;
 }
 
-.removeBtn {
+.removeBtn,
+.editBtn {
   align-self: center;
   width: 20px;
   padding-right: 2%;
+}
+
+.titleTasks {
+  cursor: pointer;
 }
 
 /*  */

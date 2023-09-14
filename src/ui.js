@@ -1,6 +1,7 @@
 import { myTasks, makeNewTask, removeTask } from "./tasks";
 import removeicon from "./imgs/remove1.svg";
 import addNewIcon from "./imgs/new.svg";
+import editIcon from "./imgs/edit.svg";
 // import "./style.css";
 
 const menu = ["Home", "Today", "Upcoming"];
@@ -79,25 +80,30 @@ function createTasks() {
     let title = document.createElement("h3");
     let dueDate = document.createElement("div");
     let priority = document.createElement("h5");
+    const edit = new Image();
     const remove = new Image();
     taskEl.classList.add("taskList");
     checkbox.classList.add("checkbox");
     title.classList.add("cards", "titleTasks", taskList);
     dueDate.classList.add("cards", "rightSide");
     priority.classList.add("cards", "rightSide");
+    edit.classList.add("editBtn", "icon");
     remove.classList.add("removeBtn", "icon");
     checkbox.setAttribute("data-check", i);
+    remove.setAttribute("data-edit", i);
     remove.setAttribute("data-remove", i);
     checkbox.type = "checkbox";
     title.textContent = task.title;
     // description.textContent = dafaultDescription;
     dueDate.textContent = task.dueDate;
     priority.textContent = task.priority;
+    edit.src = editIcon;
     remove.src = removeicon;
     taskEl.appendChild(checkbox);
     taskEl.appendChild(title);
     taskEl.appendChild(dueDate);
     taskEl.appendChild(priority);
+    taskEl.appendChild(edit);
     taskEl.appendChild(remove);
     projectTasks.appendChild(taskEl);
   }
@@ -161,7 +167,6 @@ function formContainer() {
 
 function completeTask() {
   const checkbox = document.querySelectorAll(".checkbox");
-  const taskTitle = document.querySelectorAll(".titleTasks");
   checkbox.forEach((box) => {
     box.addEventListener("change", function () {
       if (box.checked) {
@@ -182,4 +187,12 @@ function completeTaskCheck(box) {
       selectedTask.classList.toggle("completeTask");
     }
   }
+}
+
+function moreDetails() {
+  const detailPopUp = document.querySelector("#detailPopUp");
+  const getDetails = document.querySelectorAll(".titleTasks");
+  getDetails.forEach((task) => {
+    task.addEventListener("click", function () {});
+  });
 }
