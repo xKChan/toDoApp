@@ -16,6 +16,7 @@ export default function initializeUi() {
   addNewBtn();
   submitForm();
   cancelBtn();
+  completeTask();
 }
 
 function createSidebar() {
@@ -71,6 +72,7 @@ function removeDuplicates() {
 function createTasks() {
   for (let i = 0; i < myTasks.length; i++) {
     let task = myTasks[i];
+    let taskList = `taskList${i}`;
     // const dafaultDescription = task.description != "" ? task.description : "NA";
     let taskEl = document.createElement("div");
     let checkbox = document.createElement("input");
@@ -80,10 +82,11 @@ function createTasks() {
     const remove = new Image();
     taskEl.classList.add("taskList");
     checkbox.classList.add("checkbox");
-    title.classList.add("cards");
+    title.classList.add("cards", "titleTasks", taskList);
     dueDate.classList.add("cards", "rightSide");
     priority.classList.add("cards", "rightSide");
     remove.classList.add("removeBtn", "icon");
+    checkbox.setAttribute("data-check", i);
     remove.setAttribute("data-remove", i);
     checkbox.type = "checkbox";
     title.textContent = task.title;
@@ -154,4 +157,29 @@ function hideForm() {
 
 function formContainer() {
   document.querySelector("#formContainer").classList.toggle("formContainer");
+}
+
+function completeTask() {
+  const checkbox = document.querySelectorAll(".checkbox");
+  const taskTitle = document.querySelectorAll(".titleTasks");
+  checkbox.forEach((box) => {
+    box.addEventListener("change", function () {
+      if (box.checked) {
+        completeTaskCheck(box);
+      } else {
+        completeTaskCheck(box);
+      }
+    });
+  });
+}
+
+function completeTaskCheck(box) {
+  for (let i = 0; i < myTasks.length; i++) {
+    if (box.dataset.check == i) {
+      console.log(`I am checked ${i}`);
+      let taskSelector = `.taskList${i}`;
+      let selectedTask = document.querySelector(taskSelector);
+      selectedTask.classList.toggle("completeTask");
+    }
+  }
 }
