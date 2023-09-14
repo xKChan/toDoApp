@@ -16,7 +16,6 @@ export default function initializeUi() {
   addNewBtn();
   submitForm();
   cancelBtn();
-  completeTask();
 }
 
 function createSidebar() {
@@ -61,6 +60,7 @@ function displayTasks() {
   removeDuplicates();
   createTasks();
   removeTaskBtn();
+  completeTask();
 }
 
 function removeDuplicates() {

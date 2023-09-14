@@ -203,3 +203,8 @@
 .row3 {
   padding-bottom: 1.5%;
 }
+
+.radioBtns {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+}
