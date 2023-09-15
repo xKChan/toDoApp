@@ -2,6 +2,7 @@ import { myTasks, makeNewTask, removeTask } from "./tasks";
 import removeicon from "./imgs/remove1.svg";
 import addNewIcon from "./imgs/new.svg";
 import editIcon from "./imgs/edit.svg";
+import { de } from "date-fns/locale";
 // import "./style.css";
 
 const menu = ["Home", "Today", "Upcoming"];
@@ -17,6 +18,7 @@ export default function initializeUi() {
   addNewBtn();
   submitForm();
   cancelBtn();
+  moreDetails();
 }
 
 function createSidebar() {
@@ -58,23 +60,25 @@ function createProjectBar() {
 }
 
 function displayTasks() {
-  removeDuplicates();
+  let clearDisplay = projectTasks;
+  removeDuplicates(clearDisplay);
   createTasks();
   removeTaskBtn();
   completeTask();
 }
 
-function removeDuplicates() {
-  while (projectTasks.firstChild) {
-    projectTasks.removeChild(projectTasks.firstChild);
+function removeDuplicates(dom) {
+  while (dom.firstChild) {
+    dom.removeChild(dom.firstChild);
   }
+  return dom;
 }
 
 function createTasks() {
   for (let i = 0; i < myTasks.length; i++) {
     let task = myTasks[i];
     let taskList = `taskList${i}`;
-    // const dafaultDescription = task.description != "" ? task.description : "NA";
+
     let taskEl = document.createElement("div");
     let checkbox = document.createElement("input");
     let title = document.createElement("h3");
@@ -90,6 +94,7 @@ function createTasks() {
     edit.classList.add("editBtn", "icon");
     remove.classList.add("removeBtn", "icon");
     checkbox.setAttribute("data-check", i);
+    title.setAttribute("data-task", i);
     remove.setAttribute("data-edit", i);
     remove.setAttribute("data-remove", i);
     checkbox.type = "checkbox";
@@ -191,8 +196,49 @@ function completeTaskCheck(box) {
 
 function moreDetails() {
   const detailPopUp = document.querySelector("#detailPopUp");
-  const getDetails = document.querySelectorAll(".titleTasks");
+  const getDetails = document.querySelectorAll("[data-task]");
   getDetails.forEach((task) => {
-    task.addEventListener("click", function () {});
+    task.addEventListener("click", function () {
+      removeDuplicates(detailPopUp);
+      detailPopUp.removeAttribute("style");
+      for (let i = 0; i < myTasks.length; i++) {
+        if (task.dataset.task == i) {
+          const remove = new Image();
+          const popContainer = document.createElement("div");
+          const title = document.createElement("h1");
+          const descriptionContainer = document.createElement("div");
+          const descriptionTitle = document.createElement("h5");
+          const description = document.createElement("p");
+          const dueDateContainer = document.createElement("div");
+          const dueDateTitle = document.createElement("h5");
+          const dueDate = document.createElement("p");
+          title.textContent = myTasks[i].title;
+          descriptionTitle.textContent = "Description: ";
+          description.textContent = myTasks[i].description;
+          dueDateTitle.textContent = "Due Date: ";
+          dueDate.textContent = myTasks[i].dueDate;
+          remove.src = removeicon;
+          remove.classList.add("popUpIcon", "icon");
+          descriptionContainer.appendChild(descriptionTitle);
+          descriptionContainer.appendChild(description);
+          dueDateContainer.appendChild(dueDateTitle);
+          dueDateContainer.appendChild(dueDate);
+          popContainer.appendChild(remove);
+          popContainer.appendChild(title);
+          popContainer.appendChild(descriptionContainer);
+          popContainer.appendChild(dueDateContainer);
+          detailPopUp.appendChild(popContainer);
+        }
+      }
+      closePopUp();
+    });
+  });
+}
+
+function closePopUp() {
+  let close = document.querySelector(".popUpIcon");
+  close.addEventListener("click", function () {
+    console.log("hello");
+    document.querySelector("#detailPopUp").style.display = "none";
   });
 }
