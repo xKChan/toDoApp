@@ -234,3 +234,12 @@
 .popUpIcon {
   width: 25px;
 }
+
+.popUpContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(26, 26, 26, 0.9);
+}

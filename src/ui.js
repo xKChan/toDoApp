@@ -201,6 +201,9 @@ function moreDetails() {
     task.addEventListener("click", function () {
       removeDuplicates(detailPopUp);
       detailPopUp.removeAttribute("style");
+      document
+        .querySelector("#popUpContainer")
+        .classList.toggle("popUpContainer");
       for (let i = 0; i < myTasks.length; i++) {
         if (task.dataset.task == i) {
           const remove = new Image();
@@ -240,5 +243,8 @@ function closePopUp() {
   close.addEventListener("click", function () {
     console.log("hello");
     document.querySelector("#detailPopUp").style.display = "none";
+    document
+      .querySelector("#popUpContainer")
+      .classList.toggle("popUpContainer");
   });
 }
