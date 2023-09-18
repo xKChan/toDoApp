@@ -19,6 +19,7 @@ export default function initializeUi() {
   submitForm();
   cancelBtn();
   moreDetails();
+  editBtn();
 }
 
 function createSidebar() {
@@ -95,7 +96,7 @@ function createTasks() {
     remove.classList.add("removeBtn", "icon");
     checkbox.setAttribute("data-check", i);
     title.setAttribute("data-task", i);
-    remove.setAttribute("data-edit", i);
+    edit.setAttribute("data-edit", i);
     remove.setAttribute("data-remove", i);
     checkbox.type = "checkbox";
     title.textContent = task.title;
@@ -186,7 +187,6 @@ function completeTask() {
 function completeTaskCheck(box) {
   for (let i = 0; i < myTasks.length; i++) {
     if (box.dataset.check == i) {
-      console.log(`I am checked ${i}`);
       let taskSelector = `.taskList${i}`;
       let selectedTask = document.querySelector(taskSelector);
       selectedTask.classList.toggle("completeTask");
@@ -247,5 +247,17 @@ function closePopUp() {
     document
       .querySelector("#popUpContainer")
       .classList.toggle("popUpContainer");
+  });
+}
+
+function editBtn() {
+  document.querySelectorAll(".editBtn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      for (let i = 0; i < myTasks.length; i++) {
+        if (btn.dataset.edit == i) {
+          console.log(myTasks[i]);
+        }
+      }
+    });
   });
 }
