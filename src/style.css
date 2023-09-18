@@ -225,7 +225,7 @@
   transform: translate(-50%, -50%);
   background-color: yellow;
   display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 3fr 1fr;
   border-radius: 20px;
   width: 516px;
   height: 371px;
@@ -242,4 +242,29 @@
   top: 0px;
   left: 0px;
   background-color: rgb(26, 26, 26, 0.9);
+}
+
+.popUpContainer img {
+  align-self: flex-end;
+  justify-self: end;
+}
+
+.popContainer {
+  display: grid;
+  grid-template-rows: 11% max-content minmax(max-content, 40%) max-content;
+  padding: 2% 5% 0px 5%;
+  row-gap: 2%;
+}
+
+.popContainer h1 {
+  font-size: 35px;
+  padding-bottom: 20px;
+}
+
+.popContainer h5 {
+  font-size: 20px;
+}
+
+.popContainer p {
+  padding-left: 20px;
 }

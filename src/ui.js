@@ -221,6 +221,7 @@ function moreDetails() {
           dueDateTitle.textContent = "Due Date: ";
           dueDate.textContent = myTasks[i].dueDate;
           remove.src = removeicon;
+          popContainer.classList.add("popContainer");
           remove.classList.add("popUpIcon", "icon");
           descriptionContainer.appendChild(descriptionTitle);
           descriptionContainer.appendChild(description);
