@@ -256,6 +256,11 @@ function editBtn() {
       for (let i = 0; i < myTasks.length; i++) {
         if (btn.dataset.edit == i) {
           console.log(myTasks[i]);
+          document.querySelector(".editTitle").textContent = myTasks[i].title;
+
+          document.querySelector("#editDescription").value =
+            myTasks[i].description;
+          document.querySelector("#editPriority").value = myTasks[i].priority;
         }
       }
     });

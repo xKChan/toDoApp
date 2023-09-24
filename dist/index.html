@@ -65,6 +65,32 @@
         </div>
       </div>
 
+      <div id="popUpEditContainer">
+        <div id="editPopUp">
+          <form id="editForm">
+            <div class="editContainer">
+              <h1 class="editTitle"></h1>
+              <div class="row2">
+                <label for="editDescription">Description:</label>
+                <input type="text" id="editDescription" name="editContainer">
+              </div>
+              <div class="row4">
+                <label for="editPriority">Priority:</label>
+                <select name="editPriority" id="editPriority">
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+              <div class="row5">
+                <button type="submit" id="edit-task">Add Task</button>
+                <button type="button" id="cancelEdit">Cancel</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
     <script src="main.js"></script>
   </body>
 </html>
