@@ -251,33 +251,52 @@ function closePopUp() {
 }
 
 function editBtn() {
-  let editPopUp = document.querySelector("#editPopUp");
   document.querySelectorAll(".editBtn").forEach((btn) => {
     btn.addEventListener("click", function () {
-      editPopUp.removeAttribute("style");
-      document
-        .querySelector("#popUpEditContainer")
-        .classList.toggle("popUpEditContainer");
+      showEdit();
       for (let i = 0; i < myTasks.length; i++) {
         if (btn.dataset.edit == i) {
-          console.log(myTasks[i]);
           document.querySelector(".editTitle").textContent = myTasks[i].title;
           document.querySelector("#editDescription").value =
             myTasks[i].description;
           document.querySelector("#editPriority").value = myTasks[i].priority;
+          submitEdit();
           return;
         }
       }
-      closeEdit();
     });
   });
 }
 
 function closeEdit() {
   document.querySelector("#cancelEdit").addEventListener("click", function () {
-    document.querySelector("#editPopUp").style.display = "none";
-    document
-      .querySelector("#popUpEditContainer")
-      .classList.toggle("popUpEditContainer");
+    hideEdit();
   });
+}
+
+function hideEdit() {
+  document.querySelector("#editPopUp").style.display = "none";
+  toggleContainer();
+}
+
+function showEdit() {
+  document.querySelector("#editPopUp").removeAttribute("style");
+  toggleContainer();
+}
+
+function toggleContainer() {
+  document
+    .querySelector("#popUpEditContainer")
+    .classList.toggle("popUpEditContainer");
+  console.log("toggle");
+}
+
+function submitEdit() {
+  document
+    .querySelector("#editForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      console.log("hello");
+      hideEdit();
+    });
 }
