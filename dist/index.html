@@ -66,13 +66,13 @@
       </div>
 
       <div id="popUpEditContainer">
-        <div id="editPopUp">
+        <div id="editPopUp" style="display: none;">
           <form id="editForm">
             <div class="editContainer">
               <h1 class="editTitle"></h1>
-              <div class="row2">
+              <div class="row2Edit">
                 <label for="editDescription">Description:</label>
-                <input type="text" id="editDescription" name="editContainer">
+                <textarea name="editContainer" id="editDescription"></textarea>
               </div>
               <div class="row4">
                 <label for="editPriority">Priority:</label>
@@ -83,7 +83,7 @@
                 </select>
               </div>
               <div class="row5">
-                <button type="submit" id="edit-task">Add Task</button>
+                <button type="submit" id="edit-task">Confirm</button>
                 <button type="button" id="cancelEdit">Cancel</button>
               </div>
             </div>

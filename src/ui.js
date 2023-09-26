@@ -18,8 +18,6 @@ export default function initializeUi() {
   addNewBtn();
   submitForm();
   cancelBtn();
-  moreDetails();
-  editBtn();
 }
 
 function createSidebar() {
@@ -66,6 +64,8 @@ function displayTasks() {
   createTasks();
   removeTaskBtn();
   completeTask();
+  moreDetails();
+  editBtn();
 }
 
 function removeDuplicates(dom) {
@@ -242,7 +242,6 @@ function moreDetails() {
 function closePopUp() {
   let close = document.querySelector(".popUpIcon");
   close.addEventListener("click", function () {
-    console.log("hello");
     document.querySelector("#detailPopUp").style.display = "none";
     document
       .querySelector("#popUpContainer")
@@ -251,18 +250,32 @@ function closePopUp() {
 }
 
 function editBtn() {
+  let editPopUp = document.querySelector("#editPopUp");
   document.querySelectorAll(".editBtn").forEach((btn) => {
     btn.addEventListener("click", function () {
+      editPopUp.removeAttribute("style");
+      document
+        .querySelector("#popUpEditContainer")
+        .classList.toggle("popUpEditContainer");
       for (let i = 0; i < myTasks.length; i++) {
         if (btn.dataset.edit == i) {
           console.log(myTasks[i]);
           document.querySelector(".editTitle").textContent = myTasks[i].title;
-
           document.querySelector("#editDescription").value =
             myTasks[i].description;
           document.querySelector("#editPriority").value = myTasks[i].priority;
         }
       }
     });
+    closeEdit();
+  });
+}
+
+function closeEdit() {
+  document.querySelector("#cancelEdit").addEventListener("click", function () {
+    document.querySelector("#editPopUp").style.display = "none";
+    document
+      .querySelector("#popUpEditContainer")
+      .classList.toggle("popUpEditContainer");
   });
 }

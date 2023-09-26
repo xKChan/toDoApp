@@ -218,42 +218,13 @@
 /* Task Popup */
 /*  */
 
-#detailPopUp {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: yellow;
-  display: grid;
-  grid-template-rows: 3fr 1fr;
-  border-radius: 20px;
-  width: 516px;
-  height: 371px;
-}
-
 .popUpIcon {
   width: 25px;
-}
-
-.popUpContainer {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  background-color: rgb(26, 26, 26, 0.9);
 }
 
 .popUpContainer img {
   align-self: flex-end;
   justify-self: end;
-}
-
-.popContainer {
-  display: grid;
-  grid-template-rows: 11% max-content minmax(max-content, 40%) max-content;
-  padding: 2% 5% 0px 5%;
-  row-gap: 2%;
 }
 
 .popContainer h1 {
@@ -267,4 +238,56 @@
 
 .popContainer p {
   padding-left: 20px;
+}
+
+.popUpContainer,
+.popUpEditContainer {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(26, 26, 26, 0.9);
+}
+
+#detailPopUp,
+#editPopUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: yellow;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  border-radius: 20px;
+  width: 516px;
+  height: 371px;
+}
+
+.popContainer,
+.editContainer {
+  display: grid;
+  grid-template-rows: 11% max-content minmax(max-content, 40%) max-content;
+  padding: 2% 5% 0px 5%;
+  row-gap: 2%;
+}
+
+/*  */
+/* Edit Popup */
+/*  */
+
+.row2Edit {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+#editDescription {
+  height: 120px;
+  resize: none;
+  overflow-y: scroll;
+}
+
+.editContainer label {
+  font-size: 17px;
+  font-weight: bold;
 }
