@@ -18,6 +18,7 @@ export default function initializeUi() {
   addNewBtn();
   submitForm();
   cancelBtn();
+  closeEdit();
 }
 
 function createSidebar() {
@@ -264,10 +265,11 @@ function editBtn() {
           document.querySelector("#editDescription").value =
             myTasks[i].description;
           document.querySelector("#editPriority").value = myTasks[i].priority;
+          return;
         }
       }
+      closeEdit();
     });
-    closeEdit();
   });
 }
 
