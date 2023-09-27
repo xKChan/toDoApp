@@ -2,20 +2,20 @@ export const myTasks = [
   {
     title: "Clean Room",
     description: "",
-    dueDate: "Sunday",
+    dueDate: "2023-11-20",
     priority: "Low",
   },
   {
     title: "Fill out Chinese Visa",
     description: "Fill out application for chinese visas",
-    dueDate: "Friday",
+    dueDate: "2023-09-30",
     priority: "High",
   },
   {
     title: "Pack up items to move to new house",
     description:
       "Pack up all items to move to new house when its done building",
-    dueDate: "Today",
+    dueDate: "2023-10-02",
     priority: "Medium",
   },
 ];

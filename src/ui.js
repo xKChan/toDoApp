@@ -12,6 +12,11 @@ const initialize = document.querySelector("#content");
 const sidebar = document.querySelector(".sidebar");
 const projectTasks = document.querySelector(".tasks");
 
+var tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
+var localISOTime = new Date(Date.now() - tzoffset).toISOString().slice(0, -1);
+document.querySelector("#dueDate").min = localISOTime.split("T")[0];
+document.querySelector("#editDueDate").min = localISOTime.split("T")[0];
+
 export default function initializeUi() {
   createSidebar();
   displayTasks();
@@ -262,6 +267,7 @@ function editBtn() {
           document.querySelector("#editDescription").value =
             myTasks[i].description;
           document.querySelector("#editPriority").value = myTasks[i].priority;
+          document.querySelector("#editDueDate").value = myTasks[i].dueDate;
           editTask();
           return;
         }
@@ -309,6 +315,7 @@ function confirmEdit() {
     myTasks[task].description =
       document.querySelector("#editDescription").value;
     myTasks[task].priority = document.querySelector("#editPriority").value;
+    myTasks[task].dueDate = document.querySelector("#editDueDate").value;
     hideEdit();
     displayTasks();
   });

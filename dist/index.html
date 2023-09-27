@@ -41,7 +41,8 @@
           </div>
           <div class="row3">
             <label for="dueDate">Due Date:</label>
-            <input type="text" name="dueDate" id="dueDate" />
+
+            <input type="date" name="dueDate" id="dueDate"/>
           </div>
           <div class="row4">
             <label for="priority">Priority:</label>
@@ -79,7 +80,11 @@
                   <label for="editDescription">Description:</label>
                   <textarea name="editDescription" id="editDescription"></textarea>
                 </div>
-                <div class="row4">
+                <div class="row3Edit">
+                  <label for="editDueDate">Due Date:</label>
+                  <input type="date" name="editDueDate" id="editDueDate"/>
+                </div>
+                <div class="row4Edit">
                   <label for="editPriority">Priority:</label>
                   <select name="editPriority" id="editPriority">
                     <option value="Low">Low</option>
@@ -87,7 +92,7 @@
                     <option value="High">High</option>
                   </select>
                 </div>
-                <div class="row5">
+                <div class="row5Edit">
                   <button type="button" id="edit-task">Confirm</button>
                   <button type="button" id="cancelEdit">Cancel</button>
                 </div>

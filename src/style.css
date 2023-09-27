@@ -295,3 +295,12 @@
   font-size: 17px;
   font-weight: bold;
 }
+
+#editTitle {
+  font-size: 30px;
+  width: 100%;
+}
+
+.row1Edit label {
+  font-size: 30px;
+}
