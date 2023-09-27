@@ -250,6 +250,10 @@
   background-color: rgb(26, 26, 26, 0.9);
 }
 
+.description {
+  white-space: pre-wrap;
+}
+
 #detailPopUp,
 #editPopUp {
   position: fixed;

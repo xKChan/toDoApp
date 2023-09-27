@@ -43,3 +43,7 @@ export function removeTask(task) {
     }
   }
 }
+
+export function updateTask(index, description) {
+  myTasks[index].description = description;
+}

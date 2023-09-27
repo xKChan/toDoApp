@@ -224,6 +224,7 @@ function moreDetails() {
           remove.src = removeicon;
           popContainer.classList.add("popContainer");
           remove.classList.add("popUpIcon", "icon");
+          description.classList.add("description");
           descriptionContainer.appendChild(descriptionTitle);
           descriptionContainer.appendChild(description);
           dueDateContainer.appendChild(dueDateTitle);
@@ -256,11 +257,11 @@ function editBtn() {
       showEdit();
       for (let i = 0; i < myTasks.length; i++) {
         if (btn.dataset.edit == i) {
-          document.querySelector(".editTitle").textContent = myTasks[i].title;
+          document.querySelector("#editTitle").textContent = myTasks[i].title;
           document.querySelector("#editDescription").value =
             myTasks[i].description;
           document.querySelector("#editPriority").value = myTasks[i].priority;
-          submitEdit();
+          editTask();
           return;
         }
       }
@@ -288,15 +289,28 @@ function toggleContainer() {
   document
     .querySelector("#popUpEditContainer")
     .classList.toggle("popUpEditContainer");
-  console.log("toggle");
 }
 
-function submitEdit() {
-  document
-    .querySelector("#editForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      console.log("hello");
-      hideEdit();
-    });
+function editTask() {
+  let selectedTask = document.querySelector("#editTitle");
+  for (let i = 0; i < myTasks.length; i++) {
+    if (selectedTask.textContent == myTasks[i].title) {
+      return i;
+    }
+  }
 }
+
+function confirmEdit() {
+  let confirmBtn = document.querySelector("#edit-task");
+  confirmBtn.addEventListener("click", function () {
+    let task = editTask();
+    myTasks[task].title = document.querySelector("#editTitle").value;
+    myTasks[task].description =
+      document.querySelector("#editDescription").value;
+    myTasks[task].priority = document.querySelector("#editPriority").value;
+    hideEdit();
+    displayTasks();
+  });
+}
+
+confirmEdit();
