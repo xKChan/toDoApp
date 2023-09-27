@@ -2,7 +2,7 @@ import { myTasks, makeNewTask, removeTask } from "./tasks";
 import removeicon from "./imgs/remove1.svg";
 import addNewIcon from "./imgs/new.svg";
 import editIcon from "./imgs/edit.svg";
-import { de } from "date-fns/locale";
+import { ca, de } from "date-fns/locale";
 // import "./style.css";
 
 const menu = ["Home", "Today", "Upcoming"];
@@ -142,6 +142,12 @@ function addNewTask() {
 }
 
 function submitForm() {
+  let category = document.querySelector("#category");
+  for (let i = 0; i < projects.length; i++) {
+    let option = document.createElement("option");
+    option.textContent = projects[i];
+    category.appendChild(option);
+  }
   document
     .querySelector("#formContainer")
     .addEventListener("submit", function (event) {
